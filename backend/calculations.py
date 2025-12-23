@@ -1,8 +1,15 @@
 from datetime import datetime, date
+import logging
 
 START_DATE_2025 = date(2025, 11, 1)
 TOTAL_EARNINGS_SINCE_1994 = 100_000_000
 EARNINGS_PER_DAY = 8200
+
+logging.basicConfig(
+    level=logging.INFO, 
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
 
 def get_days_since(start_date: date, current_time: datetime) -> int:
     """
@@ -34,13 +41,21 @@ def calculate_earnings(current_time: datetime | None = None) -> dict:
     if current_time is None:
         current_time = datetime.now()
 
+    logger.info(f"Calculating earnings at {current_time}")
+
     days_since_nov2025 = get_days_since(START_DATE_2025, current_time)
+
+    logger.info(f"Days since 1st Nov 2025: {days_since_nov2025}")
+
     earnings_since_nov2025 = calculate_since_nov_2025(
         days_since_nov2025,
         EARNINGS_PER_DAY
     )
     today_earnings = compute_today_earnings(EARNINGS_PER_DAY)
     total_earnings = TOTAL_EARNINGS_SINCE_1994 + earnings_since_nov2025
+
+    logger.info(f"Today earnings: {today_earnings}, Total earnings: {total_earnings}")
+
 
     return {
         "today_earnings": today_earnings,
