@@ -7,4 +7,3 @@ app = FastAPI()
 async def read_earnings():
     return calculate_earnings()
 
-    
