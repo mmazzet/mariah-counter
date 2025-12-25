@@ -49,7 +49,7 @@ function App() {
        <Snow />
       {/* Header */}
       <h1 className="mb-6 text-4xl font-bold  text-red-500 font-festive flex items-center gap-2">
-        <img src="/src/assets/image-header-its-time.jpg" alt="Mariah Carey" className="h-20 w-20 rounded-full" />
+        <img src="/image-header-its-time.jpg" alt="Mariah Carey" className="h-20 w-20 rounded-full" />
         Mariah Carey Earnings
       </h1>
 

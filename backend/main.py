@@ -6,7 +6,7 @@ from schemas import EarningsResponse
 
 app = FastAPI()
 
-origins = ["*"]
+origins = ["http://localhost:5173", "https://mariah-counter.vercel.app"]
 
 app.add_middleware(
     CORSMiddleware,
