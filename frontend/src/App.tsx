@@ -14,7 +14,7 @@ function App() {
   
 
   useEffect(() => {
-    fetch("http://localhost:8000/earnings")
+    fetch("https://mariah-counter.onrender.com/earnings")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch earnings");
