@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MetricBlock from "./components/MetricBlock";
 
 type Earnings = {
   today_earnings: number;
@@ -20,6 +21,7 @@ function App() {
       })
       .then((data: Earnings) => {
         console.log("Earnings from backend:", data);
+        console.log("earnings:", data);
         setEarnings(data);
       })
       .catch((err) => {
@@ -29,22 +31,24 @@ function App() {
   }, []);
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="p-4">Error: {error}</div>;
   }
 
   if (!earnings) {
-    return <div>Loading...</div>;
+    return <div className="p-4">Loading...</div>;
   }
 
   return (
-    <div>
-      <h1>Mariah Carey Earnings</h1>
+    <div className="p-4">
+      {/* Header */}
+      <h1 className="mb-4 text-lg font-bold">Mariah Carey Earnings</h1>
 
-      <p>Today: {earnings.today_earnings}</p>
-      <p>Since Nov 1, 2025: {earnings.since_nov1_2025}</p>
-      <p>Total: {earnings.total_earnings}</p>
+      {/* Metrics */}
+      <MetricBlock label="Today" value={earnings.today_earnings} />
+      <MetricBlock label="Since Nov 1, 2025" value={earnings.since_nov1_2025} />
+      <MetricBlock label="Total" value={earnings.total_earnings} />
     </div>
   );
-}
+  }
 
 export default App;
