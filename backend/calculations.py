@@ -3,7 +3,7 @@ import logging
 
 START_DATE_2025 = date(2025, 11, 1)
 TOTAL_EARNINGS_SINCE_1994 = 100_000_000
-EARNINGS_PER_DAY = 8200
+EARNINGS_PER_DAY = 44776.12
 
 logging.basicConfig(
     level=logging.INFO, 

@@ -3,8 +3,30 @@
 @tailwind utilities;
 
 
+body {
+  @apply font-sans;
+}
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10%;
+  opacity: 0.25;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(110vh);
+  }
 }

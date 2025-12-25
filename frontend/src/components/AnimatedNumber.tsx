@@ -8,6 +8,8 @@ type AnimatedNumberProps = {
 const AnimatedNumber: React.FC<AnimatedNumberProps> = ({ value, duration = 1000 }) => {
   const [displayValue, setDisplayValue] = useState(0);
 
+  const decimalPlaces = 2;
+
   useEffect(() => {
     let start = 0;
     const increment = value / (duration / 16);
@@ -17,7 +19,7 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({ value, duration = 1000 
         start = value;
         clearInterval(interval);
       }
-      setDisplayValue(Math.floor(start));
+      setDisplayValue(Number(start.toFixed(decimalPlaces)));
     }, 16);
 
     return () => clearInterval(interval);
