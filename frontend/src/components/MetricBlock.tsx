@@ -1,5 +1,7 @@
 import React from "react";
 
+import AnimatedNumber from "./AnimatedNumber";
+
 type MetricBlockProps = {
   label: string;
   value: number;
@@ -7,9 +9,11 @@ type MetricBlockProps = {
 
 const MetricBlock: React.FC<MetricBlockProps> = ({ label, value }) => {
   return (
-    <div className="mb-4 p-2 border">
-      <p className="text-sm">{label}</p>
-      <p className="text-base font-medium">{value}</p>
+    <div className="mb-4 rounded-lg bg-pink-100 p-4 shadow-sm">
+      <p className="text-sm text-gray-600">{label}</p>
+      <p className="text-xl font-semibold text-center text-red-500">
+        $<AnimatedNumber value={value} />
+      </p>
     </div>
   );
 };

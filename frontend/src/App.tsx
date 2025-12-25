@@ -20,8 +20,6 @@ function App() {
         return res.json();
       })
       .then((data: Earnings) => {
-        console.log("Earnings from backend:", data);
-        console.log("earnings:", data);
         setEarnings(data);
       })
       .catch((err) => {
@@ -35,13 +33,21 @@ function App() {
   }
 
   if (!earnings) {
-    return <div className="p-4">Loading...</div>;
+    return (
+      <div className="p-4 space-y-4">
+        <div className="h-16 rounded-lg bg-gray-200 animate-pulse"></div> {/* skeleton card */}
+        <div className="h-16 rounded-lg bg-gray-200 animate-pulse"></div> {/* skeleton card */}
+        <div className="h-16 rounded-lg bg-gray-200 animate-pulse"></div> {/* skeleton card */}
+      </div>
+    );
   }
 
   return (
     <div className="p-4">
       {/* Header */}
-      <h1 className="mb-4 text-lg font-bold">Mariah Carey Earnings</h1>
+      <h1 className="mb-6 text-2xl font-semibold flex items-center gap-2">
+        🎄 Mariah Carey Earnings
+      </h1>
 
       {/* Metrics */}
       <MetricBlock label="Today" value={earnings.today_earnings} />
