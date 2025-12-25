@@ -6,14 +6,7 @@ from schemas import EarningsResponse
 
 app = FastAPI()
 
-origins = [
-    "http://localhost.tiangolo.com",
-    "https://localhost.tiangolo.com",
-    "http://localhost",
-    "http://localhost:8080",
-    "http://localhost:5173", "http://192.168.1.8:5173", "http://172.19.64.1:5173", "http://192.168.162.1:5173"
-
-]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
