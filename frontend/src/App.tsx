@@ -22,7 +22,7 @@ function App() {
         return res.json();
       })
       .then((data: Earnings) => {
-        setEarnings(data);
+          setEarnings(data);
       })
       .catch((err) => {
         console.error(err);
@@ -37,7 +37,10 @@ function App() {
   if (!earnings) {
     return (
       <div className="p-4 space-y-4">
-        <div className="h-16 rounded-lg bg-gray-200 animate-pulse"></div>
+        <div className="h-16 rounded-lg bg-gray-200 animate-pulse">
+          <p className="text-xl font-semibold text-center text-red-500 flex items-center justify-center gap-1">I'm waking up the server, please wait...</p>
+
+        </div>
         <div className="h-16 rounded-lg bg-gray-200 animate-pulse"></div>
         <div className="h-16 rounded-lg bg-gray-200 animate-pulse"></div>
       </div>
